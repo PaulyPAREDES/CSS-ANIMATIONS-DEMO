@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es" xml:lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>css animations demo</title>
+
+    <link rel="canonical" href="https://cssanimationsdemo" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#09f" />
+
+    <link rel="icon" type="image/png" href="" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1><span>C</span><span>S</span><span>S</span> Animations Gallery</h1>
+      <nav>
+        <a class="enlaces" href=""></a>
+      </nav>
+    </header>
+    <main>
+      <section id="buttons" class="flex-container">
+        <h2>Botones animados</h2>
+        <div class="div-element">
+          <button id="btn-change" class="btn">color change</button>
+          <pre><code>
+#btn-change{
+    background-color: blueviolet;
+    transition: 2s ease ;
+}
+
+#btn-change:hover{
+    background-color: rgb(226, 33, 152);
+    scale: 1.1;
+}
+  </code></pre>
+        </div>
+        <div class="div-element">
+          <button id="btn-outline" class="btn">outline</button>
+          <pre><code>
+#btn-outline{
+    background-color: rgb(106, 190, 22);
+    border: 2px solid transparent;
+    transition: border 0.4s ease, color 0.4s ease;
+}
+
+#btn-outline:hover{
+  border: 2px solid transparent;
+  border-image: linear-gradient(90deg, #a32bc7, #4c55d3, #1ac378);
+  border-image-slice: 1;
+}
+  </code></pre>
+        </div>
+        <div class="div-element">
+          <button id="btn-Shadow" class="btn">Shadow</button>
+          <pre><code>
+#btn-Shadow{
+ background-color:rgb(214, 214, 204);
+ color: #020202;
+ transition: 2s;
+}
+
+#btn-Shadow:hover{
+    box-shadow: 0 0 10px rgba(19, 18, 18, 0.7);
+}
+ </code></pre>
+        </div>
+        <div class="div-element">
+          <button id="btn-gradient" class="btn">gradient</button>
+          <pre><code>
+#btn-gradient{
+  font-size: 1.2rem;
+  border: none;
+  color: #fff;
+  background: linear-gradient(270deg, #f75858, #feca57, #48dbfb, #1dd1a1);
+  background-size: 300% 300%;
+  animation: gradientMove 5s ease infinite;
+  transition: transform 0.3s ease;
+}
+
+#btn-gradient:hover {
+  transform: scale(1.05);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+ </code></pre>
+        </div>
+        <div class="div-element">
+          <button id="btn-icon" class="btn">
+            icon
+            <span class="arrow">➜</span>
+          </button>
+          <pre><code>
+#btn-icon {
+  background-color: #4c55d3;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+#btn-icon:hover {
+  background-color: #5f6df5;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+#btn-icon:hover .arrow {
+  transform: translateX(8px);
+}
+ </code></pre>
+        </div>
+        <div class="div-element">
+          <button id="btn-lift" class="btn">lift effect</button>
+          <pre><code>
+#btn-lift {
+  background-color: #d34c5e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s  ease-in-out;
+  transform-style: preserve-3d;
+}
+
+#btn-lift:hover {
+  transform: perspective(600px) rotateY(180deg);
+}
+ </code></pre>
+        </div>
+      </section>
+      <section id="text" class="flex-container">
+        <h2>Animaciones de texto y tipografía</h2>
+        <div class="div-element">
+          <p class="typing-text">soy un texto tipiado</p>
+          <pre><code>
+.typing-text {
+  display: inline-block;
+  border-right: 3px solid #d3944c; 
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.2rem;
+  font-family: 'Courier New', monospace;
+  color: #333;
+  animation: typing 3s steps(28, end) infinite alternate, blink 0.6s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+ </code></pre>
+        </div>
+        <div class="div-element">
+          <h3 class="text-neon">Efecto neon</h3>
+          <pre><code>
+.text-neon{
+    color:#ddd;
+    font-family: 'Monoton', cursive;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 2px #e762e1;
+    text-shadow:
+    0 0 5px #e762e1,
+    0 0 10px #e762e1,
+    0 0 20px #e762e1,
+    0 0 40px #a32bc7,
+    0 0 80px #a32bc7;
+  
+  animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+  }
+}
+ </code></pre>
+        </div>
+        <div class="div-element">
+          <h3 class="gradient-text">Texto gradiente</h3>
+          <pre><code>
+.gradient-text{
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #fd6325, #feca57, #48dbfb, #1ce4ae);
+  background-size: 250%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: sunsetDrift 5s ease-in-out infinite;
+}
+
+@keyframes sunsetDrift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+ </code></pre>
+        </div>
+        <div class="div-element">
+          <h3 class="text-Wave">
+            <span>B</span><span>i</span><span>e</span><span>n</span
+            ><span>v</span><span>e</span><span>n</span><span>i</span
+            ><span>d</span><span>o</span>
+          </h3>
+          <pre><code>
+.text-Wave span {
+  display: inline-block;   
+  font-size: 2rem;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/*delay distinto */
+.text-Wave span:nth-child(1) { animation-delay: 0s ; color: #fd6325; }
+.text-Wave span:nth-child(2) { animation-delay: 0.1s; color: #fd6325;}
+.text-Wave span:nth-child(3) { animation-delay: 0.2s; color: #f5703b;}
+.text-Wave span:nth-child(4) { animation-delay: 0.3s; color: #f5b43b; }
+.text-Wave span:nth-child(5) { animation-delay: 0.4s; color: #e7b14c;}
+.text-Wave span:nth-child(6) { animation-delay: 0.5s; color: #f5b43b;}
+.text-Wave span:nth-child(7) { animation-delay: 0.6s; color: #f5b43b;}
+.text-Wave span:nth-child(8) { animation-delay: 0.7s; color: #fd6325;}
+.text-Wave span:nth-child(9) { animation-delay: 0.8s; color: #fd6325;}
+.text-Wave span:nth-child(10){ animation-delay: 0.9s; color: #fd6325;}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);  
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+ </code></pre>
+        </div>
+      </section>
+      <section id="loops" class="flex-container">
+        <h2>animaciones en bucle</h2>
+        <div class="div-element">
+          <button id="circular-spinner"></button>
+          <pre><code>
+#circular-spinner{
+    background-color: #3de0e6;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #2e2929; 
+    border-top: 5px solid #3de0e6;
+    border-radius: 100%;
+    animation: spin 2S ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); } 
+}
+  </code></pre>
+        </div>
+        <div class="div-element">
+          <div class="div-dots">
+            <button id="dot-1" class="dots"></button>
+            <button id="dot-2" class="dots"></button>
+            <button id="dot-3" class="dots"></button>
+            <button id="dot-4" class="dots"></button>
+          </div>
+          <pre><code>
+.dots{
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  animation: hop 0.7s ease-in-out infinite;
+  --jump: 40px;
+}
+
+@keyframes hop {
+    0%, 100% {
+    transform: translateY(0);  
+  }
+  50% {
+    transform: translateY( calc(var(--jump) * -1)); 
+  }
+}
+
+button:nth-child(1) {
+   animation-delay: 0.2s ;
+   --jump: 70px;
+   background-color: #b64011; 
+  }
+
+button:nth-child(2) {
+   animation-delay: 0.1s ;
+   --jump: 45px;
+   background-color: #17c26d; 
+  }
+
+button:nth-child(3) {
+   animation-delay: 0.3s ;
+   --jump: 60px;
+   background-color: #a5d817; 
+  }
+
+button:nth-child(4) {
+   animation-delay: 0.2s ;
+   --jump: 90px;
+   background-color: #d84417; 
+  }
+  </code></pre>
+        </div>
+        <div class="div-element">
+          <div class="progress-container">
+            <div id="progress-bar"></div>
+          </div>
+          <pre><code>
+.progress-container {
+  width: 100%;
+  overflow: hidden;
+  display: block;        
+  text-align: left;      
+}
+
+#progress-bar{
+  background-color: #b64011;
+  width:0%;
+  height: 10px;
+  border-radius: 5px;
+  animation: progress 3s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+    left: 0;
+    background-color: #da9a81;
+  }
+  100% {
+     width: 100%;
+    background-color: #d34c5e;
+  }
+}
+  </code></pre>
+        </div>
+        <div class="div-element">
+          <div class="div-dots">
+            <div id="sphere-1" class="spheres"></div>
+          </div>
+          <pre><code>
+.spheres{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #c549eb;
+  position: relative;
+}
+
+.spheres::after{
+  content: '';
+  position:absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #c549eb;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+ 0%{
+  opacity: 0;
+ }
+  
+ 50%{
+  scale: 1.5;
+  opacity: 50%;
+ }
+}
+  </code></pre>
+        </div>
+      </section>
+      <section class="flex-container">
+        <h2>figuras animadas</h2>
+        <div class="div-element">
+          <svg
+            width="200"
+            height="100"
+            viewBox="0 0 200 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="20" y="50" width="160" height="30" fill="#f44336" rx="5" />
+
+            <polygon points="60,50 90,25 140,25 160,50" fill="#e53935" />
+
+            <polygon points="95,30 110,30 110,45 80,45" fill="#90caf9" />
+            <polygon points="115,30 135,30 145,45 115,45" fill="#64b5f6" />
+
+            <circle cx="55" cy="85" r="12" fill="#333" />
+            <circle cx="145" cy="85" r="12" fill="#333" />
+          </svg>
+          <pre><code>
+svg {
+  animation: moveCar 3s linear infinite;
+}
+
+@keyframes moveCar {
+ from{
+  transform: translateX(0);
+ }
+ to{
+  transform: translateX(110px);
+ }
+}
+  </code></pre>
+        </div>
+        <div class="div-element">
+          <div class="balloon"></div>
+          <pre><code>
+.balloon {
+  position: absolute;
+  width: 60px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, #5085e7, #383bf1);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: floatUp 6s ease-in infinite;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: #444;
+  transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate(0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50px) rotate(2deg);
+  }
+  100% {
+    transform: translate(-50%, -150px) rotate(-2deg);
+  }
+}
+  </code></pre>
+        </div>
+        <div class="div-element">
+          <div class="nubes">
+            <div class="nube nube1"></div>
+            <div class="nube nube2"></div>
+          </div>
+          <pre><code>
+.nubes{
+  position: relative;
+  width: 100%;
+}
+
+.nube {
+  position: absolute;
+  background: rgb(169, 220, 243);
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: moverNube 15s linear infinite;
+}
+.nube::before,
+.nube::after {
+  content: "";
+  position: absolute;
+  background: rgb(169, 220, 243);
+  border-radius: 50%;
+}
+
+.nube1 {
+  width: 80px;
+  height: 40px;
+  left: 70px;
+}
+.nube1::before {
+  width: 60px;
+  height: 60px;
+  left: 60px;
+  top: -20px;
+}
+
+.nube1::after {
+  width: 80px;
+  height: 60px;
+  left: 30px;
+  top: -30px;
+}
+
+.nube2 {
+  width: 70px;
+  height: 40px;
+  left: -30px;
+  animation-delay: 2s;
+}
+.nube2::before {
+  width: 40px;
+  height: 30px;
+  left: 70px;
+  top: -20px;
+}
+.nube2::after {
+  width: 70px;
+  height: 60px;
+  left: 30px;
+  top: -20px;
+}
+
+@keyframes moverNube {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(30vw);
+  }
+}
+
+  </code></pre>
+        </div>
+      </section>
+    </main>
+  </body>
+  <footer>
+    <p>©2025 Pauly-na</p>
+  </footer>
+</html>
